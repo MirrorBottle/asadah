@@ -1,4 +1,4 @@
-import 'package:asadah/input_akad_page.dart';
+import 'package:asadah/pages/input_akad_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:asadah/components/button_component.dart';

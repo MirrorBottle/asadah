@@ -1,4 +1,5 @@
-import 'package:asadah/input_akad_page.dart';
+import 'package:asadah/pages/input_akad_page.dart';
+import 'package:asadah/pages/main_page.dart';
 import 'package:asadah/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Asadah',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal).copyWith(
           primary: primaryColor,
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const InputAkadPage(),
+      home: const MainPage(),
     );
   }
 }

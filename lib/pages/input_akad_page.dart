@@ -1,5 +1,5 @@
 import 'package:asadah/components/button_component.dart';
-import 'package:asadah/preview_akad_page.dart';
+import 'package:asadah/pages/preview_akad_page.dart';
 import 'package:asadah/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class _InputAkadPageState extends State<InputAkadPage> {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         title: Image.asset('assets/images/icon_white.png', height: 70),
-        automaticallyImplyLeading: false,
+        leading: BackButton(color: Colors.white),
       ),
       body: SingleChildScrollView(
         reverse: true,

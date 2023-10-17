@@ -3,7 +3,7 @@ import 'package:asadah/styles.dart';
 
 const buttonComponentDecoration = BoxDecoration(
   borderRadius: BorderRadius.all(
-    Radius.circular(10),
+    Radius.circular(20),
   ),
 );
 
@@ -28,7 +28,7 @@ class ButtonSecondaryComponent extends StatelessWidget {
           color: const Color(0xFFE6E6E6)
         ),
         width: double.infinity,
-        height: 60,
+        height: 50,
         padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
         child: Center(
           child: Text(
@@ -60,7 +60,7 @@ class ButtonComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(20),
       child: Stack(
         children: [
           Positioned.fill(
@@ -76,7 +76,7 @@ class ButtonComponent extends StatelessWidget {
             child: Container(
               width: double.infinity,
               decoration: buttonDecoration,
-              height: 60,
+              height: 50,
               padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
               child: Center(
                 child: Text(
