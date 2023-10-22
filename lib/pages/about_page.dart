@@ -1,5 +1,6 @@
 import 'package:asadah/components/button_component.dart';
 import 'package:asadah/pages/input_akad_page.dart';
+import 'package:asadah/pages/notification_page.dart';
 import 'package:asadah/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -70,20 +71,63 @@ class _AboutPageState extends State<AboutPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Akad Terbaru",
+                  "Data Diri",
                   style: Styles.textBodyHeadingStyle,
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 ...[
                   {"label": "NIM", "value": "2109106026"},
                   {"label": "Kelas", "value": "Informatika A'21 A2"},
                   {"label": "Website", "value": "bayusetiawan.my.id"}
-                ].map((data) => ListTile(
-                  leading: Text(data['label']!, style: Styles.textLabel),
+                ]
+                    .map((data) => ListTile(
+                          leading:
+                              Text(data['label']!, style: Styles.textLabel),
+                          contentPadding:
+                              const EdgeInsets.only(left: 0.0, right: 0.0),
+                          trailing: Text(data['value']!,
+                              style: Styles.textLabel
+                                  .copyWith(color: const Color(0xFF555555))),
+                        ))
+                    .toList(),
+                const SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "Pengaturan",
+                  style: Styles.textBodyHeadingStyle,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NotificationPage()),
+                    );
+                  },
                   contentPadding: const EdgeInsets.only(left: 0.0, right: 0.0),
-                  trailing: Text(data['value']!,
+                  leading: const Icon(
+                    Icons.notifications,
+                    size: 32,
+                    color: primaryColor,
+                  ),
+                  title: Text("Notifikasi",
                       style:
-                          Styles.textLabel.copyWith(color: Color(0xFF555555))),
-                )).toList()
+                          Styles.textBodyHeadingStyle.copyWith(fontSize: 18)),
+                  subtitle: Text("Atur Notifikasi Aplikasi",
+                      style: Styles.textLabel
+                          .copyWith(color: const Color(0xFF555555))),
+                  trailing: const Icon(
+                    Icons.chevron_right,
+                    size: 32,
+                    color: primaryColor,
+                  ),
+                )
               ],
             ),
           )
