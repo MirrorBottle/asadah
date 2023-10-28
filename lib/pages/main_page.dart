@@ -1,6 +1,5 @@
 import 'package:asadah/pages/about_page.dart';
 import 'package:asadah/pages/home_page.dart';
-import 'package:asadah/styles.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -22,7 +21,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         title: Image.asset('assets/images/logo_full_white.png', height: 35),
         automaticallyImplyLeading: false,
       ),
@@ -35,22 +34,23 @@ class _MainPageState extends State<MainPage> {
           });
         },
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-        indicatorColor: Theme.of(context).colorScheme.primary,
+        indicatorColor: Theme.of(context).colorScheme.secondary,
         selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
+        backgroundColor: Theme.of(context).colorScheme.background,
+        destinations: [
           NavigationDestination(
             selectedIcon: Icon(Icons.home, color: Colors.white,),
-            icon: Icon(Icons.home_outlined),
+            icon: Icon(Icons.home_outlined, color: Theme.of(context).brightness == Brightness.dark ? Theme.of(context).colorScheme.secondary : Colors.black),
             label: 'Beranda',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.folder, color: Colors.white),
-            icon: Icon(Icons.folder_outlined),
+            icon: Icon(Icons.folder_outlined, color: Theme.of(context).brightness == Brightness.dark ? Theme.of(context).colorScheme.secondary : Colors.black),
             label: 'Pinjaman',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.account_circle, color: Colors.white),
-            icon: Icon(Icons.account_circle_outlined),
+            icon: Icon(Icons.account_circle_outlined, color: Theme.of(context).brightness == Brightness.dark ? Theme.of(context).colorScheme.secondary : Colors.black),
             label: 'Profil',
           ),
         ],

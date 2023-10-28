@@ -7,10 +7,10 @@ const ternaryColor = Color(0xFF129fa5);
 const neutralColor = Color(0xFF333333);
 abstract class Styles {
   static final text = GoogleFonts.poppins();
-  static final textPrimary = Styles.text.copyWith(color: primaryColor);
+  static final textPrimary = TextStyle(color: primaryColor);
   static final textHeadingStyle = Styles.text
       .copyWith(color: Colors.white, fontSize: 34, fontWeight: FontWeight.bold);
-  static final textLabel = Styles.text.copyWith(
+  static final textLabel = TextStyle(
     color: neutralColor, fontSize: 16
   );
   static final textBodyHeadingStyle = Styles.text

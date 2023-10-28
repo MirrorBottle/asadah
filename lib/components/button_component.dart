@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:asadah/styles.dart';
 
 const buttonComponentDecoration = BoxDecoration(
   borderRadius: BorderRadius.all(
@@ -33,7 +32,7 @@ class ButtonSecondaryComponent extends StatelessWidget {
         child: Center(
           child: Text(
             buttontext,
-            style: Styles.text.copyWith(
+            style: TextStyle(
                 fontSize: 21.0,
                 color: const Color(0xFF333333),
                 fontWeight: FontWeight.bold),
@@ -81,7 +80,7 @@ class ButtonComponent extends StatelessWidget {
               child: Center(
                 child: Text(
                   buttontext,
-                  style: Styles.text.copyWith(
+                  style: TextStyle(
                       fontSize: 21.0,
                       color: Colors.white,
                       fontWeight: FontWeight.bold),

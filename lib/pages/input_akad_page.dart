@@ -1,6 +1,5 @@
 import 'package:asadah/components/button_component.dart';
 import 'package:asadah/pages/preview_akad_page.dart';
-import 'package:asadah/styles.dart';
 import 'package:flutter/material.dart';
 
 class InputAkadPage extends StatefulWidget {
@@ -20,7 +19,7 @@ class _InputAkadPageState extends State<InputAkadPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: primaryColor,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -36,7 +35,7 @@ class _InputAkadPageState extends State<InputAkadPage> {
             const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.only(left: 20),
-              child: Text("Buat Akad", style: Styles.textHeadingStyle),
+              child: Text("Buat Akad", style: Theme.of(context).textTheme.displayLarge,),
             ),
             const SizedBox(height: 40),
             Container(
@@ -44,15 +43,15 @@ class _InputAkadPageState extends State<InputAkadPage> {
                   minHeight: MediaQuery.of(context).size.height - 200),
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.all(20.0),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 borderRadius:
                     BorderRadius.only(topRight: Radius.circular(60.0)),
-                color: Colors.white,
+                color:  Theme.of(context).colorScheme.background,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Nama Barang", style: Styles.textLabel),
+                  Text("Nama Barang", style: Theme.of(context).textTheme.bodySmall),
                   const SizedBox(height: 10),
                   TextField(
                     controller: _nameController,
@@ -61,7 +60,7 @@ class _InputAkadPageState extends State<InputAkadPage> {
                             borderRadius: BorderRadius.circular(10))),
                   ),
                   const SizedBox(height: 20),
-                  Text("Tafsiran Marhun", style: Styles.textLabel),
+                  Text("Tafsiran Marhun", style: Theme.of(context).textTheme.bodySmall),
                   const SizedBox(height: 10),
                   TextField(
                     controller: _estimatedController,
@@ -71,12 +70,13 @@ class _InputAkadPageState extends State<InputAkadPage> {
                             borderRadius: BorderRadius.circular(10))),
                   ),
                   const SizedBox(height: 20),
-                  Text("Jenis Akad", style: Styles.textLabel),
+                  Text("Jenis Akad", style: Theme.of(context).textTheme.bodySmall),
                   const SizedBox(height: 10),
                   ..._categories.map((category) {
                     return ListTile(
-                      title: Text(category, style: Styles.textLabel),
+                      title: Text(category, style: Theme.of(context).textTheme.bodySmall),
                       leading: Radio(
+                        activeColor: Theme.of(context).colorScheme.secondary,
                         value: category,
                         groupValue: _data['category'],
                         onChanged: (value) {
@@ -90,8 +90,7 @@ class _InputAkadPageState extends State<InputAkadPage> {
                   const SizedBox(height: 20),
                   CheckboxListTile(
                       title: Text(
-                          "Saya Menyetujui Ketentuan Semua Ketentuan yang Berlaku",
-                          style: Styles.textLabel),
+                          "Saya Menyetujui Ketentuan Semua Ketentuan yang Berlaku", style: Theme.of(context).textTheme.bodySmall),
                       value: _data['approvement'],
                       controlAffinity: ListTileControlAffinity.leading,
                       onChanged: (bool? newValue) {
