@@ -1,4 +1,6 @@
+import 'package:asadah/main.dart';
 import 'package:asadah/pages/notification_page.dart';
+import 'package:asadah/pages/theme_page.dart';
 import 'package:flutter/material.dart';
 
 class SettingTile extends StatelessWidget {
@@ -23,7 +25,7 @@ class SettingTile extends StatelessWidget {
         size: 32,
         color: Theme.of(context).colorScheme.secondary,
       ),
-      title: Text(title, style: Theme.of(context).textTheme.bodyMedium),
+      title: Text(title, style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize:18)),
       subtitle: Text(desc, style: Theme.of(context).textTheme.bodySmall),
       trailing: Icon(
         Icons.chevron_right,
@@ -34,17 +36,12 @@ class SettingTile extends StatelessWidget {
   }
 }
 
-class AboutPage extends StatefulWidget {
+class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
-  @override
-  State<AboutPage> createState() => _AboutPageState();
-}
-
-class _AboutPageState extends State<AboutPage> {
   Future<dynamic> _handleAboutTap() {
     return showDialog(
-        context: context,
+        context: navigatorKey.currentContext!,
         builder: (context) {
           return AlertDialog(
             title: const Text("Tentang"),
@@ -58,8 +55,11 @@ class _AboutPageState extends State<AboutPage> {
                     "Versi: 1.0.0",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 5,),
-                  Text("Asadah merupakan sebuah aplikasi untuk melakukan pengajuan akad secara online oleh Asadah Gadai Syariah.")
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                      "Asadah merupakan sebuah aplikasi untuk melakukan pengajuan akad secara online oleh Asadah Gadai Syariah.")
                 ],
               ),
             ),
@@ -180,6 +180,17 @@ class _AboutPageState extends State<AboutPage> {
                     desc: "Tentang Aplikasi dan Versi",
                     icon: Icons.help,
                     onTap: _handleAboutTap),
+                SettingTile(
+                    title: "Tampilan",
+                    desc: "Tema dan warna",
+                    icon: Icons.palette,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ThemePage()),
+                      );
+                    }),
               ],
             ),
           )
